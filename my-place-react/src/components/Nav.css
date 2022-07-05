@@ -1,0 +1,19 @@
+nav {
+  width: 100vw;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+#nav_header {
+  width: 1140px;
+  display: flex;
+  justify-content: space-between;
+}
+.menu_bar {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}

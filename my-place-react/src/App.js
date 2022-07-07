@@ -1,6 +1,5 @@
 import "./App.css";
 import React from "react";
-import MapContainer from "./pages/MapContainer";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WriteContainer from "./pages/WirteContainer";

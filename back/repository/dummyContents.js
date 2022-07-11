@@ -19,7 +19,7 @@ module.exports.mapDiaryContents = [
     title: "나의 2순위 닭발 맛집",
     content:
       "닭발 맛집이다. 내가 먹기에는 맵지만 국물 닭발 특유의 쫀득함이 내 혀를 감싼다. 너무 맵다면 국물을 덜어내고 콩나물국을 넣고 끓이면 맵기 조절이 가능하다",
-    address: "서울 종로구 대학로12길 13 청민빌딩",
+    address: "서울 용산구 백범로90길 38",
     category: "Photo",
     createdAt: new Date().toLocaleString(),
   },
@@ -28,7 +28,7 @@ module.exports.mapDiaryContents = [
     title: "나의 1순위 닭발 맛집",
     content:
       "닭발 맛집이다. 내가 먹기에는 맵지만 국물 닭발 특유의 쫀득함이 내 혀를 감싼다. 너무 맵다면 국물을 덜어내고 콩나물국을 넣고 끓이면 맵기 조절이 가능하다",
-    address: "서울 종로구 대학로12길 13 청민빌딩",
+    address: "서울 용산구 한강대로39길 2-13",
     category: "Photo",
     createdAt: new Date().toLocaleString(),
   },
@@ -37,7 +37,7 @@ module.exports.mapDiaryContents = [
     title: "나의 3순위 닭발 맛집",
     content:
       "닭발 맛집이다. 내가 먹기에는 맵지만 국물 닭발 특유의 쫀득함이 내 혀를 감싼다. 너무 맵다면 국물을 덜어내고 콩나물국을 넣고 끓이면 맵기 조절이 가능하다",
-    address: "서울 종로구 대학로12길 13 청민빌딩",
+    address: "서울 용산구 효창원로70길 4",
     category: "Food",
     createdAt: new Date().toLocaleString(),
   },
@@ -46,7 +46,7 @@ module.exports.mapDiaryContents = [
     title: "나의 2순위 닭발 맛집",
     content:
       "닭발 맛집이다. 내가 먹기에는 맵지만 국물 닭발 특유의 쫀득함이 내 혀를 감싼다. 너무 맵다면 국물을 덜어내고 콩나물국을 넣고 끓이면 맵기 조절이 가능하다",
-    address: "서울 종로구 대학로12길 13 청민빌딩",
+    address: "서울 용산구 한강대로81길 8 1층",
     category: "Food",
     createdAt: new Date().toLocaleString(),
   },

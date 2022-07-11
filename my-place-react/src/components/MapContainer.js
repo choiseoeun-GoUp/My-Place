@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import KakaoMapScript from "../api/KakaoMapScript";
 
-export default function MapContainer({ searchPlace }) {
+export default function MapContainer({ searchPlace, contents }) {
   useEffect(() => {
-    KakaoMapScript({ searchPlace });
-  }, [searchPlace]);
+    KakaoMapScript({ searchPlace, contents });
+  }, [searchPlace, contents]);
 
   return (
     <div

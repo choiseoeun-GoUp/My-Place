@@ -18,10 +18,10 @@ const contentsController = {
   },
   createOne: (req, res) => {
     const { title, content, address, category } = req.body;
-    const newId = contentsData.length + 1;
+    const id = contentsData.length + 1;
     const createdAt = new Date();
     const newData = {
-      newId,
+      id,
       title,
       content,
       address,

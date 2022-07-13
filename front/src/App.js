@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WriteContainer from "./pages/WirteContainer";
@@ -9,9 +9,6 @@ function App() {
   const domain = "http://localhost:5050";
   const [contents, setContents] = useState([]);
 
-  useEffect(() => {
-    getContents();
-  }, []);
   const getContents = () => {
     return fetch(domain + "/contents")
       .then((res) => res.json())
@@ -19,30 +16,51 @@ function App() {
         setContents(data);
       });
   };
-  const addContents = ({ title, address, content }) => {
-    const newContents = {
-      id: "unique id",
-      title: title,
-      bodyHTML: content,
-      address: address,
-      createdAt: new Date(),
-    };
+  useEffect(() => {
+    getContents();
+  }, []);
+  const addContents = (WriteContainer) => {
+    // const newContents = {
+    //   id: "unique id",
+    //   title: title,
+    //   content: content,
+    //   address: address,
+    //   createdAt: new Date(),
+    // };
     fetch(domain + "/contents/", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newContents),
-    }).then((res) => {
-      if (res.status === 201) {
-        getContents();
-      }
+      body: JSON.stringify(WriteContainer),
+    }).then(() => {
+      getContents();
     });
   };
+  // const editContents = ({ title, address, content }) => {
+  //   const newContents = {
+  //     id: "unique id",
+  //     title: title,
+  //     content: content,
+  //     address: address,
+  //     createdAt: new Date(),
+  //   };
+  //   fetch(domain + "/contents/" + newContents.id, {
+  //     method: "PUT",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(newContents),
+  //   }).then((res) => {
+  //     if (res.status === 201) {
+  //       getContents();
+  //     }
+  //   });
+  // };
 
   const deleteContents = (id) => {
-    console.log("delete?");
     fetch(domain + `/contents/${id}`, {
       method: "DELETE",
     }).then((res) => {
@@ -50,6 +68,7 @@ function App() {
         getContents();
       }
     });
+    console.log("delete" + id);
   };
 
   return (

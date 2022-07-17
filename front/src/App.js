@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WriteContainer from "./pages/WirteContainer";
-import SearchPlace from "./pages/SearchPlace";
+import MainContainer from "./pages/MainContainer";
 
 function App() {
   const domain = "http://localhost:5050";
@@ -38,27 +38,19 @@ function App() {
       getContents();
     });
   };
-  // const editContents = ({ title, address, content }) => {
-  //   const newContents = {
-  //     id: "unique id",
-  //     title: title,
-  //     content: content,
-  //     address: address,
-  //     createdAt: new Date(),
-  //   };
-  //   fetch(domain + "/contents/" + newContents.id, {
-  //     method: "PUT",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(newContents),
-  //   }).then((res) => {
-  //     if (res.status === 201) {
-  //       getContents();
-  //     }
-  //   });
-  // };
+  const editContents = ({ WriteContainer, id }) => {
+    fetch(domain + `/contents/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(WriteContainer),
+    }).then((res) => {
+      if (res.status === 201) {
+        getContents();
+      }
+    });
+  };
 
   const deleteContents = (id) => {
     fetch(domain + `/contents/${id}`, {
@@ -78,12 +70,17 @@ function App() {
         <Route
           path="/"
           element={
-            <SearchPlace contents={contents} deleteContents={deleteContents} />
+            <MainContainer
+              contents={contents}
+              deleteContents={deleteContents}
+            />
           }
         />
         <Route
           path="/write"
-          element={<WriteContainer addContents={addContents} />}
+          element={
+            <WriteContainer contents={contents} addContents={addContents} />
+          }
         />
       </Routes>
     </Router>

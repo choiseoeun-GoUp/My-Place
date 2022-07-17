@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import SearchPlace from "./SearchPlace";
+import SearchBox from "../components/SearchBox";
 
-export default function WriteContainer({ addContents }) {
+export default function WriteContainer({ contents, addContents }) {
   const [isValid, setIsValid] = useState(false);
 
   const titleRef = useRef();
@@ -31,10 +31,11 @@ export default function WriteContainer({ addContents }) {
     contentRef.current.value = "";
     alert("성공");
     setIsValid(false);
-    <SearchPlace />;
+    // <SearchPlace />;
   };
   return (
     <>
+      <SearchBox contents={contents} />
       <div class="inner">
         <div class="write-container">
           <h2>글쓰기페이지</h2>

@@ -1,6 +1,6 @@
 import { Content } from "./Content";
 
-export const Contents = ({ contents, deleteContents }) => {
+export const Contents = ({ contents, deleteContents, editContents }) => {
   return (
     <section>
       <ul>
@@ -10,6 +10,7 @@ export const Contents = ({ contents, deleteContents }) => {
               key={contents.id}
               contents={contents}
               deleteContents={deleteContents}
+              editContents={editContents}
             />
           );
         })}

@@ -1,10 +1,9 @@
 // SearchPlace.js
 
 import React, { useState } from "react";
-import { Contents } from "../components/Contents";
-import MapContainer from "../components/MapContainer";
+import MapContainer from "./MapContainer";
 
-const SearchPlace = ({ contents, deleteContents, editContents }) => {
+const SearchPlace = ({ contents }) => {
   const [inputText, setInputText] = useState("");
   const [place, setPlace] = useState("");
 
@@ -29,11 +28,6 @@ const SearchPlace = ({ contents, deleteContents, editContents }) => {
         <button type="submit">검색</button>
       </form>
       <MapContainer searchPlace={place} contents={contents} />
-      <Contents
-        contents={contents}
-        deleteContents={deleteContents}
-        editContents={editContents}
-      />
     </>
   );
 };

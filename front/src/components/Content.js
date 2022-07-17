@@ -1,18 +1,9 @@
 import React, { useState } from "react";
+import EditModal from "../Modal/EditModal";
 
-export const Content = ({ contents, deleteContents }) => {
+export const Content = ({ contents, deleteContents, editContents }) => {
   const { id, title, address, content, createdAt } = contents;
-  console.log(contents);
-
-  const [editModal, setEditModal] = useState(false);
-  const [deleteModal, setDeleteModal] = useState(false);
-  const handleEditModal = () => {
-    setEditModal(false);
-  };
-
-  const handleDeleteModal = () => {
-    setDeleteModal(!deleteModal);
-  };
+  // console.log(contents);
 
   return (
     <li>
@@ -22,7 +13,13 @@ export const Content = ({ contents, deleteContents }) => {
       <div>{content}</div>
       <div>{createdAt}</div>
       <button onClick={() => deleteContents(contents.id)}>삭제</button>
-      <button onClick={() => setEditModal(true)}>수정</button>
+      <button
+        onClick={() => (
+          <EditModal contents={contents} editContents={editContents} />
+        )}
+      >
+        수정
+      </button>
     </li>
   );
 };

@@ -16,6 +16,7 @@ export default function MapContainer({ searchPlace, contents }) {
         style={{
           width: "1140px",
           height: "500px",
+          borderRadius: "50px",
         }}
       ></div>
     </>

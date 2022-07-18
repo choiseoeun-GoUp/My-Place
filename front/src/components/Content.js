@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EditModal from "../Modal/EditModal";
+import "./Content.css";
 
 export const Content = ({ contents, deleteContents, editContents }) => {
   const { id, title, address, content, createdAt } = contents;

@@ -1,4 +1,5 @@
 // SearchPlace.js
+import "./Map.css";
 
 import React, { useState } from "react";
 import MapContainer from "./MapContainer";
@@ -24,6 +25,7 @@ const SearchPlace = ({ contents }) => {
           placeholder="Search Place..."
           onChange={onChange}
           value={inputText}
+          type="text"
         />
         <button type="submit">검색</button>
       </form>

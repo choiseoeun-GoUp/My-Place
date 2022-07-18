@@ -1,0 +1,14 @@
+.MainContainer {
+  width: 1140px;
+  height: 40px;
+  /* background-color: teal; */
+  display: flex;
+  justify-content: flex-start;
+}
+.MainContainer select {
+  width: 200px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(233, 233, 233);
+}

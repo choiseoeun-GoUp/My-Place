@@ -65,24 +65,33 @@ function App() {
 
   return (
     <Router>
-      <Nav />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <MainContainer
-              contents={contents}
-              deleteContents={deleteContents}
-            />
-          }
-        />
-        <Route
-          path="/write"
-          element={
-            <WriteContainer contents={contents} addContents={addContents} />
-          }
-        />
-      </Routes>
+      <div className="App">
+        <main>
+          <Nav />
+          <section className="features">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <MainContainer
+                    contents={contents}
+                    deleteContents={deleteContents}
+                  />
+                }
+              />
+              <Route
+                path="/write"
+                element={
+                  <WriteContainer
+                    contents={contents}
+                    addContents={addContents}
+                  />
+                }
+              />
+            </Routes>
+          </section>
+        </main>
+      </div>
     </Router>
   );
 }

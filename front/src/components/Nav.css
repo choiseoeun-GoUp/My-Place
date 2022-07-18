@@ -1,19 +1,51 @@
 nav {
   width: 100vw;
-  height: 100px;
-  background-color: rgba(0, 0, 0, 0.1);
+  height: 150px;
+  background-color: #1c7579;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  font-size: 30px;
+  font-family: "Playfair Display", serif;
+  box-shadow: 0px 1px 10px rgba(89, 89, 89, 0.3);
 }
 #nav_header {
   width: 1140px;
   display: flex;
   justify-content: space-between;
 }
+
+#title img {
+  width: 250px;
+  position: absolute;
+  top: 25px;
+}
 .menu_bar {
-  width: 200px;
+  /* width: 250px; */
   display: flex;
   justify-content: space-between;
+}
+.menu_bar button {
+  /* background-color: teal; */
+  font-weight: 800;
+  color: #fff7f0;
+  padding: 0 2px;
+}
+.btn_main {
+  margin-right: 30px;
+}
+.underline {
+  background-image: linear-gradient(transparent calc(100% - 3px), #1c7579 3px);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  transition: background-size 0.8s;
+  cursor: pointer;
+}
+
+.underline {
+  background-image: linear-gradient(transparent 70%, #f28daf 40%);
+}
+.underline:hover {
+  background-size: 100% 100%;
 }

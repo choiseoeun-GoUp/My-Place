@@ -1,18 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import logoImage from "../assets/Logo-g.png";
 
 function Nav() {
   return (
     <nav>
       <div id="nav_header">
-        <span id="title">
-          <span id="name">LOGOLOGO</span>
-        </span>
+        <div id="title">
+          <img src={logoImage} alt="로고" />
+        </div>
         <div className="menu_bar">
-          <Link to="/">메인</Link>
+          <Link to="/">
+            <button className="btn_main underline">Main</button>
+          </Link>
           <Link to="/write">
-            <button>Click to Wirte</button>
+            <button className="btn_write underline">Click to Write</button>
           </Link>
         </div>
       </div>

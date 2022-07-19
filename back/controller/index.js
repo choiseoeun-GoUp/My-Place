@@ -39,9 +39,15 @@ const contentsController = {
     const newUpdate = {
       ...contentsData[updateIdx],
       ...req.body,
+      updatedAt: new Date().toISOString(),
     };
-    contentsData.splice(contentsData[updateIdx], 1, newUpdate);
-    res.status(200).json(contentsData);
+
+    if (updateIdx !== -1) {
+      contentsData.splice(updateIdx, 1, newUpdate);
+      res.status(200).json(contentsData);
+    } else {
+      return res.status(404).send("Not found");
+    }
   },
 
   deleteById: (req, res) => {

@@ -9,24 +9,18 @@ function App() {
   const domain = "http://localhost:5050";
   const [contents, setContents] = useState([]);
 
-  const getContents = () => {
+  useEffect(() => {
+    getContents();
+  }, []);
+
+  const getContents = useCallback(() => {
     return fetch(domain + "/contents")
       .then((res) => res.json())
       .then((data) => {
         setContents(data);
       });
-  };
-  useEffect(() => {
-    getContents();
-  }, []);
+  });
   const addContents = (WriteContainer) => {
-    // const newContents = {
-    //   id: "unique id",
-    //   title: title,
-    //   content: content,
-    //   address: address,
-    //   createdAt: new Date(),
-    // };
     fetch(domain + "/contents/", {
       method: "POST",
       headers: {
@@ -38,26 +32,29 @@ function App() {
       getContents();
     });
   };
-  const editContents = ({ WriteContainer, id }) => {
+  const editContents = ({ UpdateContainer, id }) => {
+    console.log(id);
     fetch(domain + `/contents/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(WriteContainer),
+      body: JSON.stringify(UpdateContainer),
     }).then((res) => {
-      if (res.status === 201) {
+      if (res.status === 200) {
         getContents();
       }
     });
   };
 
   const deleteContents = (id) => {
+    console.log(id);
     fetch(domain + `/contents/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (res.status === 202 || 204) {
         getContents();
+        console.log(id);
       }
     });
     console.log("delete" + id);
@@ -76,6 +73,7 @@ function App() {
                   <MainContainer
                     contents={contents}
                     deleteContents={deleteContents}
+                    editContents={editContents}
                   />
                 }
               />

@@ -3,7 +3,7 @@ import "./Content.css";
 
 export const Contents = ({ contents, deleteContents, editContents }) => {
   return (
-    <section>
+    <section className="contentsBox">
       <ul>
         <div>{contents.category}</div>
         {contents.map((contents) => {

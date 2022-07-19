@@ -1,63 +1,59 @@
 import React, { useState } from "react";
+import "./EditModal.css";
 
-const EditModal = ({ contents, editContents }) => {
-  const { title, id } = contents;
+const EditModal = ({ onModal, contents, editContents }) => {
+  const { id, title, address, content } = contents;
 
-  // const [name, setName] = useState(author);
-  // const [title, setTitle] = useState(propTitle);
-  // const [content, setContent] = useState(bodyHTML);
+  const [Title, setTitle] = useState(title);
+  const [Content, setContent] = useState(content);
+  const [Address, setAddress] = useState(address);
 
-  // const handleConfirmClick = () => {
-  //   const changeDiscussion = {
-  //     author: name,
-  //     title,
-  //     bodyHTML: content,
-  //   };
-
-  //   editDiscussion(changeDiscussion, id);
-  //   onModal();
-  // };
+  const handleConfirmClick = () => {
+    const changeContent = {
+      title: Title,
+      content: Content,
+      address: Address,
+    };
+    console.log(typeof id);
+    console.log(contents.id);
+    editContents(changeContent, id);
+    onModal();
+    console.log(contents);
+    console.log(changeContent);
+    // alert("수정완료");
+  };
 
   return (
     <>
-      <div className="edit-modal">
-        <h1>Edit Discussion</h1>
-        {/* <div className="form__input--wrapper">
-          <div className="form__input--name">
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="form__input--title">
-            <input
-              type="text"
-              name="title"
-              id="title"
-              placeholder="Title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="form__textbox">
-            <textarea
-              id="story"
-              name="story"
-              cols="100"
-              rows="100"
-              placeholder="Ask a question, start a conversation, or make an announcement"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            ></textarea>
-          </div>
-        </div> */}
-
-        <button className="edit-modal-btn cancel">Cancel</button>
-        <button className="edit-modal-btn confirm">Confirm</button>
+      <div className="Edit">
+        <input
+          type="text"
+          // value={title}
+          defaultValue={title}
+          placeholder="제목"
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          // value={address}
+          placeholder="주소"
+          onChange={(e) => setAddress(e.target.value)}
+        />
+        <textarea
+          type="text"
+          // value={content}
+          placeholder="내용"
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button className="edit-modal-btn cancel" onClick={() => onModal()}>
+          Cancel
+        </button>
+        <button
+          className="edit-modal-btn confirm"
+          onClick={() => handleConfirmClick()}
+        >
+          Confirm
+        </button>
       </div>
     </>
   );

@@ -1,18 +1,30 @@
-.App {
-  text-align: center;
-}
+@charset "UTF-8";
 
 * {
+  margin: 0px;
+  padding: 0px;
   color: #282c34;
+  box-sizing: border-box;
   /* font-family: "Ibarra Real Nova", serif; */
 }
-button {
-  all: unset;
+
+ul,
+ol {
+  list-style: none;
 }
+
 a {
   text-decoration: none;
   color: #282c34;
 }
+button {
+  all: unset;
+  cursor: pointer;
+}
+.App {
+  text-align: center;
+}
+
 main {
   width: 100%;
   height: 100%;

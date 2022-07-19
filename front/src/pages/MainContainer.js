@@ -1,4 +1,5 @@
 // SearchPlace.js
+
 import "./Main.css";
 
 import React, { useState } from "react";

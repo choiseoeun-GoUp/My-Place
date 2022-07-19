@@ -1,0 +1,10 @@
+.Edit {
+  z-index: 990;
+  width: 500px;
+  height: 500px;
+  background-color: #fff;
+}
+.Edit .edit-modal-btn {
+  width: 100px;
+  background-color: lightblue;
+}

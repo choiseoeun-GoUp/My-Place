@@ -25,6 +25,8 @@ const MainContainer = ({ contents, deleteContents, editContents }) => {
     }
     setCurrentCategory(event.target.value);
   };
+  console.log(contents.id);
+
   return (
     <>
       <section className="MainContainer">

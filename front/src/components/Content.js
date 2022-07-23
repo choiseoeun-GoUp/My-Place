@@ -4,7 +4,7 @@ import "./Content.css";
 
 export const Content = ({ contents, deleteContents, editContents }) => {
   const { id, title, address, content, createdAt } = contents;
-  // console.log(contents);
+  console.log(contents.id);
   const [editModal, setEditModal] = useState(false);
   const handleEditModal = () => {
     setEditModal(!editModal);

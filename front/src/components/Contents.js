@@ -2,6 +2,8 @@ import { Content } from "./Content";
 import "./Content.css";
 
 export const Contents = ({ contents, deleteContents, editContents }) => {
+  console.log(contents.id);
+
   return (
     <section className="contentsBox">
       <ul>

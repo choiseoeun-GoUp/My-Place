@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import MapContainer from "./MapContainer";
 
 const SearchPlace = ({ contents }) => {
+  console.log(contents.id);
   const [inputText, setInputText] = useState("");
   const [place, setPlace] = useState("");
 
@@ -17,6 +18,7 @@ const SearchPlace = ({ contents }) => {
     setPlace(inputText);
     setInputText(""); // 다시 비워주기
   };
+  console.log(contents.id);
 
   return (
     <>

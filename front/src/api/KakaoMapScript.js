@@ -62,7 +62,7 @@ export default function KakaoMapScript({ searchPlace, contents }) {
                 <br />
                 <span class="overlayAddress">${place.address_name} </span>
                 <button class="overlayDelet" onClick=${closeOverlay()}>X</button>
-                </div>`
+        </div>`
       );
 
       customOverlay.setMap(map);

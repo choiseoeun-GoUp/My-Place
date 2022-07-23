@@ -33,6 +33,8 @@ function App() {
     });
   };
   const editContents = ({ UpdateContainer, id }) => {
+    console.log(contents);
+    console.log(UpdateContainer);
     console.log(id);
     fetch(domain + `/contents/${id}`, {
       method: "PUT",

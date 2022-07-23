@@ -14,10 +14,11 @@ const EditModal = ({ onModal, contents, editContents }) => {
       content: Content,
       address: Address,
     };
-    console.log(typeof id);
+
     console.log(contents.id);
     editContents(changeContent, id);
     onModal();
+
     console.log(contents);
     console.log(changeContent);
     // alert("수정완료");
@@ -35,13 +36,13 @@ const EditModal = ({ onModal, contents, editContents }) => {
         />
         <input
           type="text"
-          // value={address}
+          defaultValue={address}
           placeholder="주소"
           onChange={(e) => setAddress(e.target.value)}
         />
         <textarea
           type="text"
-          // value={content}
+          defaultValue={content}
           placeholder="내용"
           onChange={(e) => setContent(e.target.value)}
         />

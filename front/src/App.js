@@ -4,23 +4,23 @@ import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import WriteContainer from "./pages/WirteContainer";
 import MainContainer from "./pages/MainContainer";
-import LoadingSpinner from "./Modal/LoadingSpinner";
+// import LoadingSpinner from "./Modal/LoadingSpinner";
 
 function App() {
   const domain = "http://localhost:5050";
   const [contents, setContents] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const getContents = useCallback(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
     fetch(domain + "/contents")
       .then((res) => res.json())
       .then((data) => {
-        setIsLoading(false);
+        // setIsLoading(false);
         setContents(data);
       })
       .catch((e) => {
-        setIsLoading(true);
+        // setIsLoading(true);
         console.log(`에러 캐치 ${e}`);
       });
   });
@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   const addContents = (WriteContainer) => {
-    setIsLoading(true);
+    // setIsLoading(true);
 
     fetch(domain + "/contents/", {
       method: "POST",
@@ -45,12 +45,13 @@ function App() {
         getContents();
       })
       .catch((e) => {
-        setIsLoading(true);
+        // setIsLoading(true);
         console.log(`에러 캐치 ${e}`);
       });
   };
-  const editContents = ({ UpdateContainer, id }) => {
-    setIsLoading(true);
+  const editContents = (UpdateContainer, id) => {
+    // 중괄호로 닫아서 id가 안넘어왔닿ㅎㅎㅎㅎㅎ얼탱없음
+    // setIsLoading(true);
 
     fetch(domain + `/contents/${id}`, {
       method: "PUT",
@@ -65,14 +66,14 @@ function App() {
         }
       })
       .catch((e) => {
-        setIsLoading(true);
+        // setIsLoading(true);
         console.log(`에러 캐치 ${e}`);
       });
   };
 
   const deleteContents = (id) => {
     console.log(id);
-    setIsLoading(true);
+    // setIsLoading(true);
 
     fetch(domain + `/contents/${id}`, {
       method: "DELETE",
@@ -84,7 +85,7 @@ function App() {
         }
       })
       .catch((e) => {
-        setIsLoading(true);
+        // setIsLoading(true);
         console.log(`에러 캐치 ${e}`);
       });
     console.log("delete" + id);
@@ -100,15 +101,11 @@ function App() {
               <Route
                 path="/"
                 element={
-                  isLoading ? (
-                    <LoadingSpinner />
-                  ) : (
-                    <MainContainer
-                      contents={contents}
-                      deleteContents={deleteContents}
-                      editContents={editContents}
-                    />
-                  )
+                  <MainContainer
+                    contents={contents}
+                    deleteContents={deleteContents}
+                    editContents={editContents}
+                  />
                 }
               />
               <Route

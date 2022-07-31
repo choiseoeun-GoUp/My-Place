@@ -16,7 +16,7 @@ const EditModal = ({ onModal, contents, editContents }) => {
     };
 
     console.log(contents.id);
-    editContents(changeContent, id);
+    editContents(changeContent, contents.id);
     onModal();
 
     console.log(contents);
